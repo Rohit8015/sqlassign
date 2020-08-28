@@ -1,6 +1,6 @@
 1.select Empid,EmpName, Department, EmailID, EmpHeadId 
   from Employee
-  where EmpName LIKE 'P%'
+  where EmpName like 'P%'
 
 2.select count(Salary) as count 
   from EmpSalary 
@@ -46,25 +46,25 @@
    from EmpDept 
    where DeptId in (select Department from Employee where EmpId>103)
 
-13.select empname 
+13.select EmpName 
    from Employee 
    where EmpheadId =(select EmpId from Employee where EmpName='Abhishek') 
 
-14.select empname 
-   from employee 
-   where empid =(select depthead from empdept where DeptName='hr')
+14.select EmpName 
+   from Employee 
+   where EmpId =(select DeptHead from EmpDept where DeptName='hr')
 
-15.select empname 
-   from employee 
-   where empid in(select empheadid from employee) and empid in(select empid from empsalary where ispermanent='yes')
+15.select EmpName 
+   from Employee 
+   where EmpId in(select EmpheadId from Employee) and EmpId in(select EmpId from EmpSalary where ispermanent='yes')
 
-16.select empname, emaildid 
-   from employee 
-   where empid in(select depthead from empdept ) and empid in(select empid from empsalary where ispermanent='no')
+16.select EmpName, EmaildId 
+   from Employee 
+   where EmpId in(select DeptHead from EmpDept ) and EmpId in(select EmpId from EmpSalary where ispermanent='no')
 
 17.select Empid,EmpName, Department, EmailID, EmpHeadId 
-   from employee 
-   where department in(select deptid from empdept where dept_off='Monday')
+   from Employee 
+   where Department in(select DeptId from EmpDept where dept_off='Monday')
 
 18.select ClientId,ClientName,cid 
    from Clienttable 

@@ -1,44 +1,76 @@
-select Empid,EmpName, Department, EmailID, EmpHeadId 
-from Employee
-where EmpName LIKE 'P%'
+1.select Empid,EmpName, Department, EmailID, EmpHeadId 
+  from Employee
+  where EmpName LIKE 'P%'
 
-select count(Salary) as count 
-from EmpSalary 
-where Ispermanent='Yes' and salary>5000
+2.select count(Salary) as count 
+  from EmpSalary 
+  where Ispermanent='Yes' and salary>5000
 
-select Empid,EmpName, Department, EmailID, EmpHeadId  
-from Employee 
-where EmaildID like '%@gmail.com'
+3.select Empid,EmpName, Department, EmailID, EmpHeadId  
+  from Employee 
+  where EmaildID like '%@gmail.com'
 
-select Empid,EmpName, Department, EmailID, EmpHeadId
-from Employee 
-where Department='E-102' or Department='E-104'
+4.select Empid,EmpName, Department, EmailID, EmpHeadId
+  from Employee 
+  where Department='E-102' or Department='E-104'
 
-select Deptname 
-from Empdept 
-where DeptId ='E-102'
+5.select Deptname 
+  from Empdept 
+  where DeptId ='E-102'
 
-select sum(Salary) as Salary 
-from EmpSalary 
-where Ispermanent='Yes'
+6.select sum(Salary) as Salary 
+  from EmpSalary 
+  where Ispermanent='Yes'
 
-select EmpName 
-from employee 
-where Empname like '%a'
+7.select EmpName 
+  from employee 
+  where Empname like '%a'
 
-select count(EmpId) as Employee, ProjectId 
-from EmpProject 
-group by ProjectId
+8.select count(EmpId) as Employee, ProjectId 
+  from EmpProject 
+  group by ProjectId
 
-select count(ProjectId) as Project 
-from EmpProject 
-where StartYear=2010
+9.select count(ProjectId) as Project 
+  from EmpProject 
+  where StartYear=2010
 
-select count(ProjectId) as Project 
-from EmpProject 
-where StartYear=EndYear
+10.select count(ProjectId) as Project 
+   from EmpProject 
+   where StartYear=EndYear
 
-select Empid,EmpName, Department, EmailID, EmpHeadId
-from Employee 
-where EmpName like '__h%'
+11.select Empid,EmpName, Department, EmailID, EmpHeadId
+   from Employee 
+   where EmpName like '__h%'
+
+12.select DeptName 
+   from EmpDept 
+   where DeptId in (select Department from Employee where EmpId>103)
+
+13.select empname 
+   from Employee 
+   where EmpheadId =(select EmpId from Employee where EmpName='Abhishek') 
+
+14.select empname 
+   from employee 
+   where empid =(select depthead from empdept where DeptName='hr')
+
+15.select empname 
+   from employee 
+   where empid in(select empheadid from employee) and empid in(select empid from empsalary where ispermanent='yes')
+
+16.select empname, emaildid 
+   from employee 
+   where empid in(select depthead from empdept ) and empid in(select empid from empsalary where ispermanent='no')
+
+17.select Empid,EmpName, Department, EmailID, EmpHeadId 
+   from employee 
+   where department in(select deptid from empdept where dept_off='Monday')
+
+18.select ClientId,ClientName,cid 
+   from Clienttable 
+   where cid in(select cid from country where cname='India')
+
+19.select Empid,EmpName, Department, EmailID, EmpHeadId 
+   from Employee 
+   where Department in(select DeptId from EmpDept where Deptname='Development')
 
